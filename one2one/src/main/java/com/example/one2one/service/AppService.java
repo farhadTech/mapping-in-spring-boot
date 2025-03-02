@@ -18,11 +18,11 @@ public class AppService {
 
     @Transactional
     public void saveData() {
-        Student student = new Student("Abhilash", 12345678L);
-        studentRepository.save(student);
-
         Address address = new Address("G2 SR Lane", "Bangalore", "Karnataka");
         addressRepository.save(address);
+
+        Student student = new Student("Abhilash", 12345678L, address);
+        studentRepository.save(student);
 
         System.out.println("Data Saved successfully");
     }
