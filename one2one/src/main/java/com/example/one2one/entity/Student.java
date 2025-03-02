@@ -23,4 +23,27 @@ public class Student {
         this.name = name;
         this.mobile = mobile;
     }
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address addressId;
+
+    public Address getAddress() {
+        return addressId;
+    }
+
+    public void setAddress(Address address) {
+        this.addressId = address;
+    }
+
 }
+
+/* Right now the addressId in Student class is a join column; so this is a foreign key,
+this joins both the table so we would say this is join column.
+
+Every student will have only one address. so it is an one to one relationship.
+from the foreign key addressId we can get all details of the details of Address table.
+So we will create will create a reference of Address not Long type.
+before: private Long addressId;
+after: private Address addressId;
+ */

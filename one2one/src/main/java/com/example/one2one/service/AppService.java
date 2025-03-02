@@ -23,6 +23,8 @@ public class AppService {
 
         Address address = new Address("G2 SR Lane", "Bangalore", "Karnataka");
         addressRepository.save(address);
+
+        System.out.println("Data Saved successfully");
     }
 }
 
