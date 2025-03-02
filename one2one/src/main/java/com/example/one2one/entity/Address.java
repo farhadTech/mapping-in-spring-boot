@@ -5,9 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "Address")
 public class Address {
@@ -24,6 +21,42 @@ public class Address {
     public Address(String houseDetails, String city, String state) {
         this.houseDetails = houseDetails;
         this.city = city;
+        this.state = state;
+    }
+
+    public Address() {
+
+    }
+
+    public Long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
+    }
+
+    public String getHouseDetails() {
+        return houseDetails;
+    }
+
+    public void setHouseDetails(String houseDetails) {
+        this.houseDetails = houseDetails;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
         this.state = state;
     }
 }

@@ -1,13 +1,7 @@
 package com.example.one2one.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "Students")
 public class Student {
@@ -24,8 +18,43 @@ public class Student {
         this.mobile = mobile;
     }
 
+    public Student() {
+    }
+
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(Long mobile) {
+        this.mobile = mobile;
+    }
+
+    public Address getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Address addressId) {
+        this.addressId = addressId;
+    }
+
     // foreign key
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address addressId;
 
@@ -53,4 +82,9 @@ So we will create a reference of Address not the type Long.
 
 before: private Long addressId;
 after: private Address addressId;
+ */
+
+/* In @OneToOne there is a function called fetch which internally fetch eager, for that reason,
+    we will get every details of the entity. which we don't need if we want only a specific column result.
+    so we need to do, @OneToOne(fetch = FetchType.LAZY).
  */

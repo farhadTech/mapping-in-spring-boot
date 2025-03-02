@@ -17,6 +17,7 @@ public class One2oneApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		appService.saveData();
+//		appService.saveData();
+		appService.fetchStudentRecord();
 	}
 }
